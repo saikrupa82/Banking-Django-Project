@@ -18,7 +18,6 @@ colorama==0.4.3
 confusable-homoglyphs==3.2.0
 crccheck==1.0
 cryptography==2.8
-cupshelpers==1.0
 cycler==0.10.0
 Cython==0.29.18
 db==0.1.1
