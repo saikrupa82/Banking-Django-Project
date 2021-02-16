@@ -34,8 +34,7 @@ diff-match-patch==20200713
 distlib==0.3.0
 distro==1.4.0
 distro-info===0.23ubuntu1
-# Editable install with no version control (Django==3.0.5)
--e /home/sai_krupa_reddy/.local/lib/python3.8/site-packages
+Django==3.0.5
 django-braces==1.14.0
 django-crispy-forms==1.10.0
 django-default-imagefield==0.5.5
