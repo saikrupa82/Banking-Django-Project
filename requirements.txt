@@ -1,7 +1,5 @@
 antiorm==1.2.1
 appdirs==1.4.3
-apt-xapian-index==0.49
-argon2-cffi==20.1.0
 asgiref==3.2.10
 async-generator==1.10
 attrs==19.3.0
