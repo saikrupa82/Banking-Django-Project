@@ -56,7 +56,6 @@ google-auth==1.21.2
 google-auth-httplib2==0.0.4
 google-auth-oauthlib==0.4.1
 googleapis-common-protos==1.52.0
-gpg===1.13.1-unknown
 gunicorn==20.0.4
 httplib2==0.14.0
 idna==2.8
@@ -181,7 +180,6 @@ sklearn==0.0
 soupsieve==2.0.1
 SpeechRecognition==3.8.1
 sqlparse==0.2.4
-swapper==1.1.2.post1
 systemd-python==234
 tablib==2.0.0
 terminado==0.9.0
