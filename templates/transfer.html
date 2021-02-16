@@ -1,0 +1,132 @@
+{% extends 'base.html' %}{% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'assets/css/transfer.css'%}">
+
+{% if messages %}
+  <div class="row">
+  <div class="col col-sm-offset-3">
+      {% for message in messages %}
+      {% if  message.tags  == "error" %}
+      <div class="alert alert-danger" role="alert">
+      {% else %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+      {% endif %}
+      
+      <p>{{ message }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+{% endif %}
+
+<div class="card">
+    <div class="card-header text-center">
+        <h3> Transferring  Amount</h3>
+      </div>
+<form class="  m-4 p-4" method="POST">
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <h4>From</h4>
+    <div class="row mb-2">
+      <div class="col">
+        <div class="form-outline">
+          <input type="text" id="form6Example1" class="form-control" value="{{ presentcustomer.firstname }}" disabled/>
+          <label class="form-label" for="form6Example1">First name</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-outline">
+          <input type="text" id="form6Example2" class="form-control" value="{{ presentcustomer.lastName }}" disabled/>
+          <label class="form-label" for="form6Example2">Last name</label>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Text input -->
+    <div class="row mb-2">
+        <div class="col">
+          <div class="form-outline">
+            <input type="text" id="form6Example1" name="FromAccount" class="form-control" value="{{ presentcustomer.AccountNumber }}" disabled/>
+            <label class="form-label" for="form6Example1">Account Number</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-outline">
+            <input type="text" id="form6Example2" class="form-control" value="{{ presentcustomer.Balance }}" disabled/>
+            <label class="form-label" for="form6Example2">Balance</label>
+          </div>
+        </div>
+      <div class="col">
+        <div class="form-outline">
+          <input type="text" id="form6Example2" class="form-control" value="{{ presentcustomer.EmailId }}" disabled/>
+          <label class="form-label" for="form6Example2">EmailId</label>
+        </div>
+      </div>
+    </div>
+  <h4>To</h4>
+    <!-- Number input -->
+    <div class="row mb-2">
+        <div class="col">
+          <div class="form-outline">
+        <input type="text" id="form6Example1" class="form-control" value="{{transfer.firstname}}" disabled/>
+            <label class="form-label" for="form6Example1">First name</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-outline">
+            <input type="text" id="form6Example2" class="form-control" value="{{transfer.lastName}}" disabled/>
+            <label class="form-label" for="form6Example2">Last name</label>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Text input -->
+      <div class="row mb-2">
+            
+
+        <div class="col">
+    {% csrf_token %}
+          <select class="form-select-sm col" onchange="this.form.submit()" name="dropdown" value={{transfer.}}>
+            {% if transfer.AccountNumber %}
+            <option selected>{{ transfer.AccountNumber }}</option>
+            {% else %}
+            <option selected>Select the account number</option>
+            {% endif %}
+            {% for i in bankcustomer%}
+            <option value="{{i.AccountNumber}}" >{{i.AccountNumber}}</option>
+            {% endfor %}
+          </select>
+          <label class="form-label" for="form6Example1">Account Number</label>
+
+        </div>
+          
+          <div class="col">
+            <div class="form-outline">
+              <input type="text" name="AmountSent" id="form6Example2" class="form-control"  />
+              <label class="form-label" for="form6Example2">Amount to be sent </label>
+            </div>
+          </div>
+        <div class="col">
+          <div class="form-outline">
+            <input type="text" id="form6Example2" class="form-control" value="{{ transfer.EmailId }}" disabled/>
+            <label class="form-label" for="form6Example2">EmailId</label>
+          </div>
+        </div>
+      </div>
+  
+    <!-- Message input -->
+    <div class="form-outline mb-2">
+      <textarea class="form-control" id="form6Example7" rows="4" name="Remarks"></textarea>
+      <label class="form-label" for="form6Example7">Additional information</label>
+    </div>
+  
+    
+  
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4" >Transfer Amount</button>
+    
+  </form>
+</div>
+
+
+
+{% endblock %}

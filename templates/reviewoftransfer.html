@@ -1,0 +1,52 @@
+{% extends 'base.html' %}{% load static %} {% block content %}{% csrf_token %}
+<div class="card ">
+    <div class="card-header text-center">
+     <h5> Money Transfer Details</h3>
+    </div>
+    <form method="POST">
+    <div class="row">
+        <div class="col-sm-4 text-left">
+            <div class="card-body">
+              <h5 class="card-title">Debit Account Details</h5>
+              <h6>Transaction ID :</h6>
+              <h6>Account No :</h6>
+              <h6>Account Holder Name :</h6>
+              <h6>Amount :</h6>
+              <h6>Remarks :</h6>
+              <div class="form-group col-12 p-1">
+                <hr>
+       </div>
+
+              <h5 class="card-title">Credit Account Details </h5>
+              <h6>Account No :</h6>
+              <h6>Account Holder Name :</h6>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card-body">
+              <br>
+              <h6>{{ transferdetail.uniqueid }}</h6>
+              <h6>{{Sender.AccountNumber}}</h6>
+              <h6>{{Sender.firstname}}{{Sender.lastname}}</h6>
+              <h6>{{transferdetail.AmountSent}}</h6>
+              <h6>{{transferdetail.Remarks}}</h6>
+                <br>
+                <br>
+                <br>
+              <h6>{{Reciver.AccountNumber}}</h6>
+              <h6>{{Reciver.firstname}}{{Reciver.lastname}}</h6>
+            </div>
+          </div>
+      </div>
+      <br>
+      {% csrf_token %}
+<div class=" text-center card-footer text-muted">
+      <input class="btn btn-primary" type="submit" value="Submit" name="submit">
+<input class="btn btn-primary" type="submit" value="Cancel" name="cancel" >
+</div>
+</div>
+
+</form>
+
+{% endblock %}

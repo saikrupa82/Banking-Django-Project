@@ -1,0 +1,49 @@
+{% extends 'base.html' %}{% load static %} {% block content %}{% csrf_token %}
+{% if messages %}
+{% for message in messages %}
+
+<ul class="messages">
+  {% if  message.tags  == "error" %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+
+    {% else %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+
+      <strong>Transfer Succcessful!</strong> {{ message }}
+      {% endif %}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+</ul>
+{% endfor %}
+{% endif %}
+
+<table class="table table-hover">
+  <thead class="table-dark p-4 m-4">
+    <tr>
+      <th scope="col">Sno</th>
+      <th scope="col">Name Of Account Holder</th>
+      <th scope="col">Email ID</th>
+      <th scope="col">Account Number</th>
+      <th scope="col">Bank Balance(₹)</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in bankcustomer %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{i.firstname}}{{i.lastName}}</td>
+      <td>{{i.EmailId}}</td>
+      <td>{{i.AccountNumber}}</td>
+      <td>{{i.Balance}}</td>
+      <td><a href="{% url 'Transfer' i.slug %}"><button type="button"
+            class="btn btn-outline-success">Transfer</button></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
