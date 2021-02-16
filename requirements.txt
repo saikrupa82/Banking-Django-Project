@@ -15,7 +15,6 @@ chardet==3.0.4
 click==7.1.2
 cmake==3.17.3
 colorama==0.4.3
-command-not-found==0.3
 confusable-homoglyphs==3.2.0
 crccheck==1.0
 cryptography==2.8
