@@ -8,7 +8,6 @@ beautifulsoup4==4.9.1
 black==19.10b0
 bleach==3.2.1
 blinker==1.4
-buildozer==1.1.1.dev0
 cachetools==4.1.1
 certifi==2019.11.28
 cffi==1.14.2
@@ -31,7 +30,6 @@ defusedxml==0.6.0
 diff-match-patch==20200713
 distlib==0.3.0
 distro==1.4.0
-distro-info===0.23ubuntu1
 Django==3.0.5
 django-braces==1.14.0
 django-crispy-forms==1.10.0
@@ -151,9 +149,9 @@ PyQt5==5.14.1
 PyRect==0.1.4
 pyrsistent==0.17.3
 PyScreeze==0.1.26
-python-apt==2.0.0+ubuntu0.20.4.4
+
 python-dateutil==2.8.1
-python-debian===0.1.36ubuntu1
+
 python-docx==0.8.10
 python3-xlib==0.15
 pythoncrc==1.21
